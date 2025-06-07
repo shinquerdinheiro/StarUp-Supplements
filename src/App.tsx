@@ -38,7 +38,7 @@ export default function App() {
   );
 }
 
-export function SupplementStore() {
+function SupplementStore() {
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 15, seconds: 9 });
   const [showEmailPopup, setShowEmailPopup] = useState(false);
   const [email, setEmail] = useState("");
@@ -106,9 +106,9 @@ export function SupplementStore() {
 
   return (
     <>
-      <div className="flex items-center justify-end bg-gray-900 p-4 rounded-b-md mb-4">
+      
         <SignOutButton />
-      </div>
+    
     {/* Barra de Promoção Fixa */}
     <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 text-center font-bold animate-pulse">
       🔥 WHEY 900G a partir de R$38,90 | FRETE GRÁTIS ACIMA DE R$199 🔥
