@@ -38,7 +38,8 @@ export default function App() {
   );
 }
 
-function SupplementStore() {
+export function SupplementStore() {
+  const userInfo = useQuery(api.auth.loggedInUser);
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 15, seconds: 9 });
   const [showEmailPopup, setShowEmailPopup] = useState(false);
   const [email, setEmail] = useState("");
@@ -106,10 +107,18 @@ function SupplementStore() {
 
   return (
     <>
-      {/* Barra de Promoção Fixa */}
-      <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 text-center font-bold animate-pulse">
-        🔥 WHEY 900G a partir de R$38,90 | FRETE GRÁTIS ACIMA DE R$199 🔥
-      </div>
+      {userInfo ? (
+        <div>
+          Logado como: {userInfo.email}
+          <SignOutButton />
+        </div>
+      ) : (
+        <div>Você não está logado.</div>
+      )}
+    {/* Barra de Promoção Fixa */}
+    <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 text-center font-bold animate-pulse">
+      🔥 WHEY 900G a partir de R$38,90 | FRETE GRÁTIS ACIMA DE R$199 🔥
+    </div>
 
       {/* Header */}
       <header className="bg-black border-b-2 border-red-600 sticky top-0 z-40">

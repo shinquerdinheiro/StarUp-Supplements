@@ -69,7 +69,17 @@ export function SignInForm() {
         <span className="mx-4 text-secondary">or</span>
         <hr className="my-4 grow border-gray-200" />
       </div>
-      <button className="auth-button" onClick={() => void signIn("anonymous")}>
+            <button
+        className="auth-button"
+        onClick={async () => {
+          try {
+            await signIn("anonymous");
+          } catch (error) {
+            console.error("Erro ao fazer login anônimo:", error);
+            alert("Não foi possível fazer login anônimo. Tente novamente.");
+          }
+        }}
+      >
         Sign in anonymously
       </button>
     </div>
