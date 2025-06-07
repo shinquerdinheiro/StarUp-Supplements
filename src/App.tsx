@@ -107,14 +107,9 @@ export function SupplementStore() {
 
   return (
     <>
-      {userInfo ? (
-        <div>
-          Logado como: {userInfo.email}
-          <SignOutButton />
-        </div>
-      ) : (
-        <div>Você não está logado.</div>
-      )}
+      <div className="flex items-center justify-end bg-gray-900 p-4 rounded-b-md mb-4">
+        <SignOutButton />
+      </div>
     {/* Barra de Promoção Fixa */}
     <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 text-center font-bold animate-pulse">
       🔥 WHEY 900G a partir de R$38,90 | FRETE GRÁTIS ACIMA DE R$199 🔥
