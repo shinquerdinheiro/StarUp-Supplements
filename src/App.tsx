@@ -39,7 +39,6 @@ export default function App() {
 }
 
 export function SupplementStore() {
-  const userInfo = useQuery(api.auth.loggedInUser);
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 15, seconds: 9 });
   const [showEmailPopup, setShowEmailPopup] = useState(false);
   const [email, setEmail] = useState("");
